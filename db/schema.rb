@@ -10,14 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911152246) do
+ActiveRecord::Schema.define(version: 20160915044804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "account_statuses", force: :cascade do |t|
+  create_table "educations", force: :cascade do |t|
     t.string   "name"
     t.text     "note"
+    t.integer  "edited_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "entities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.integer  "edited_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "entity_id"
+    t.text     "note"
+    t.integer  "edited_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_id"], name: "index_roles_on_entity_id", using: :btree
+  end
+
+  create_table "securities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "level"
+    t.text     "note"
+    t.integer  "edited_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,4 +57,38 @@ ActiveRecord::Schema.define(version: 20160911152246) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "lastname"
+    t.string   "firstname"
+    t.date     "birth_date"
+    t.integer  "sex_id"
+    t.integer  "security_id",            default: 1
+    t.integer  "role_id",                default: 1
+    t.integer  "education_id"
+    t.integer  "edited_by"
+    t.index ["education_id"], name: "index_users_on_education_id", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
+    t.index ["security_id"], name: "index_users_on_security_id", using: :btree
+    t.index ["sex_id"], name: "index_users_on_sex_id", using: :btree
+  end
+
+  add_foreign_key "roles", "entities"
+  add_foreign_key "users", "educations"
+  add_foreign_key "users", "roles"
+  add_foreign_key "users", "securities"
+  add_foreign_key "users", "sexes"
 end

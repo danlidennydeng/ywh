@@ -1,0 +1,59 @@
+<h1>Editing Users</h1>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> </h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :姓氏 %>
+    <%= f.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名字 %>
+    <%= f.text_field :firstname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :生日 %>
+    <%= f.date_select("birth_date", start_year:1920, end_year: 2010) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :性别 %>
+    <%= f.collection_select(:sex_id, Sex.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :安全级别 %>
+    <%= f.collection_select(:security_id, Security.all.order(level: :asc), :id, :level) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :角色 %>
+    <%= f.collection_select(:role_id, Role.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文化程度 %>
+    <%= f.collection_select(:education_id, Education.all, :id, :name) %>
+  </div>
+  
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'back', users_path %>

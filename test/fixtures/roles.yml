@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  entity: one
+  note: MyText
+  edited_by: 1
+
+two:
+  name: MyString
+  entity: two
+  note: MyText
+  edited_by: 1

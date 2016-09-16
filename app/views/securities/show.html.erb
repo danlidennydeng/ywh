@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @security.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @security.level %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @security.note %>
+</p>
+
+<p>
+  <strong>Edited by:</strong>
+  <%= @security.edited_by %>
+</p>
+
+<%= link_to 'Edit', edit_security_path(@security) %> |
+<%= link_to 'Back', securities_path %>
