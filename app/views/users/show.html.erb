@@ -2,14 +2,16 @@
 
 <p>
   
-  <%= @user.lastname %><%= @user.firstname %>, <%= @user.sex.name %>
+  <%= @user.fullname %>, <%= @user.sex.name %>
 </p>
 
-<%= @user.education.name %>
-<%= @user.birth_date %>
+
+<%= @user.birth_year %>
 <%= @user.security.level %>
 <%= @user.role.name %>
-<%= @user.edited_by %>
+
+<%= @user.note %>
+<%= @user.edited_by %></br>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

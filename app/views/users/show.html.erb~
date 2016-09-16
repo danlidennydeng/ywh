@@ -6,9 +6,10 @@
 </p>
 
 <%= @user.education.name %>
-<%= @user.birth_date %>
+<%= @user.birth_year %>
 <%= @user.security.level %>
 <%= @user.role.name %>
+<%= @user.edited_by %>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

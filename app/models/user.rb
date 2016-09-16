@@ -7,6 +7,6 @@ class User < ApplicationRecord
   belongs_to :role
   belongs_to :security
   belongs_to :sex
-  belongs_to :education
 
+  validates :fullname, length: {maximum: 38}
 end

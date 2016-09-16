@@ -13,19 +13,25 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :姓氏 %>
-    <%= f.text_field :lastname %>
+    <%= f.label :全名 %>
+    <%= f.text_field :fullname %>
   </div>
 
   <div class="field">
-    <%= f.label :名字 %>
-    <%= f.text_field :firstname %>
+    <%= f.label :出生年 %>
+    <%= f.text_field :birth_year %>
   </div>
 
   <div class="field">
-    <%= f.label :生日 %>
-    <%= f.date_select("birth_date", start_year:1920, end_year: 2010) %>
+    <%= f.label :月 %>
+    <%= f.text_field :birth_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :日 %>
+    <%= f.text_field :birth_day %>
   </div>
 
   <div class="field">
@@ -44,10 +50,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :文化程度 %>
-    <%= f.collection_select(:education_id, Education.all, :id, :name) %>
+    <%= f.label :特别说明 %>
+    <%= f.text_area :note %>
   </div>
-  
+
   <%= f.hidden_field :edited_by, :value => current_user.id %>
 
   <div class="actions">

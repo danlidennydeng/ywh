@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915044804) do
+ActiveRecord::Schema.define(version: 20160916221937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,15 +70,15 @@ ActiveRecord::Schema.define(version: 20160915044804) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "lastname"
-    t.string   "firstname"
-    t.date     "birth_date"
-    t.integer  "sex_id"
+    t.string   "fullname"
+    t.integer  "birth_year"
+    t.integer  "birth_month"
+    t.integer  "birth_day"
+    t.integer  "sex_id",                 default: 1
     t.integer  "security_id",            default: 1
     t.integer  "role_id",                default: 1
-    t.integer  "education_id"
+    t.text     "note"
     t.integer  "edited_by"
-    t.index ["education_id"], name: "index_users_on_education_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20160915044804) do
   end
 
   add_foreign_key "roles", "entities"
-  add_foreign_key "users", "educations"
   add_foreign_key "users", "roles"
   add_foreign_key "users", "securities"
   add_foreign_key "users", "sexes"
