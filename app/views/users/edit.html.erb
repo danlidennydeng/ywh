@@ -1,4 +1,8 @@
+<% if current_user.security.level > 87 %>
+
 <h1>Editing Users</h1>
+
+<%= @user.email %>
 
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -13,40 +17,14 @@
     </div>
   <% end %>
 
-
   <div class="field">
-    <%= f.label :全名 %>
-    <%= f.text_field :fullname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :出生年 %>
-    <%= f.text_field :birth_year %>
-  </div>
-
-  <div class="field">
-    <%= f.label :月 %>
-    <%= f.text_field :birth_month %>
-  </div>
-
-  <div class="field">
-    <%= f.label :日 %>
-    <%= f.text_field :birth_day %>
-  </div>
-
-  <div class="field">
-    <%= f.label :性别 %>
-    <%= f.collection_select(:sex_id, Sex.all, :id, :name) %>
+    <%= f.label :角色 %>
+    <%= f.collection_select(:role_id, Role.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= f.label :安全级别 %>
     <%= f.collection_select(:security_id, Security.all.order(level: :asc), :id, :level) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :角色 %>
-    <%= f.collection_select(:role_id, Role.all, :id, :name) %>
   </div>
 
   <div class="field">
@@ -63,3 +41,9 @@
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'back', users_path %>
+
+<% else %>
+
+   <p>您的安全级别有待提高。</p>
+
+<% end %>

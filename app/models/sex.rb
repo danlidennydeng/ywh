@@ -1,3 +1,5 @@
 class Sex < ApplicationRecord
-  has_many :users
+  
+  has_many :individual_identities
+
 end

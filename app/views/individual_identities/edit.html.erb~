@@ -1,0 +1,41 @@
+<% if current_user.security.level == 99 %>
+
+<h1>Editing Individual Identity</h1>
+
+<%= form_for(@individual_identity) do |f| %>
+  <% if @individual_identity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@individual_identity.errors.count, "error") %> prohibited this individual_identity from being saved:</h2>
+
+      <ul>
+      <% @individual_identity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fullname %>
+    <%= f.text_field :fullname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex_id %>
+    <%= f.text_field :sex_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @individual_identity %> |
+<%= link_to 'Back', individual_identities_path %>
+
+<% else %>
+
+   <p>您的安全级别有待提高。</p>
+   <%= link_to '回家', authenticated_root %>
+
+<% end %>

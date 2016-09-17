@@ -1,0 +1,2 @@
+module IndividualIdentitiesHelper
+end

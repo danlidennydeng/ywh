@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :role
   belongs_to :security
-  belongs_to :sex
+  
+  has_one :individual_identity, dependent: :destroy
 
-  validates :fullname, length: {maximum: 38}
 end

@@ -1,0 +1,4 @@
+class IndividualIdentity < ApplicationRecord
+  belongs_to :user
+  belongs_to :sex
+end

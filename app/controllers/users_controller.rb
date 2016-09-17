@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order(security_id: :desc)
   end
  
   # # GET /users/1
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: '您的信息被成功更新.' }
+        format.html { redirect_to @user, notice: '用户信息被成功更新.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
  
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit( :fullname, :birth_year, :birth_month, :birth_day, :sex_id, :security_id, :role_id, :note, :edited_by)
+      params.require(:user).permit(:security_id, :role_id, :note, :edited_by)
     end
  
 end

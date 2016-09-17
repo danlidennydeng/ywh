@@ -4,7 +4,7 @@ class SecuritiesController < ApplicationController
   # GET /securities
   # GET /securities.json
   def index
-    @securities = Security.order(level: :asc)
+    @securities = Security.all
   end
 
   # GET /securities/1

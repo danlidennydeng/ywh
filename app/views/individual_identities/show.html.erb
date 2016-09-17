@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>全名:</strong>
+  <%= @individual_identity.fullname %>
+</p>
+<p>
+  <strong>电子邮箱:</strong>
+  <%= @individual_identity.user.email %>
+</p>
+
+<p>
+  <strong>角色:</strong>
+  <%= @individual_identity.user.role.name %>
+</p>
+
+<p>
+  <strong>安全级别:</strong>
+  <%= @individual_identity.user.security.level %>
+</p>
+
+
+
+<p>
+  <strong>Sex:</strong>
+  <%= @individual_identity.sex.name %>
+</p>
+
+<% if current_user.security.level == 99 %>
+
+   <%= link_to 'Edit', edit_individual_identity_path(@individual_identity) %> | 
+<%= link_to 'Back', individual_identities_path %>
+
+<% else %>
+  <%= link_to 'Back', individual_identities_path %>
+<% end %>

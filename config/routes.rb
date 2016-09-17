@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :individual_identities
   resources :roles
   resources :entities
   resources :educations

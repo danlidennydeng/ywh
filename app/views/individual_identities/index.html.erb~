@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Individual Identities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fullname</th>
+      <th>角色</th>
+      
+      <th>Sex</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @individual_identities.each do |individual_identity| %>
+      <tr>
+        <td><%= individual_identity.fullname %></td>
+        <td><%= individual_identity.user.role.name %></td>
+        
+        <td><%= individual_identity.sex.name %></td>
+        
+        <td><%= link_to 'Show', individual_identity %></td>
+<!--
+        
+        <td><%= link_to 'Edit', edit_individual_identity_path(individual_identity) %></td>
+        <td><%= link_to 'Destroy', individual_identity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+-->
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

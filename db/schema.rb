@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916221937) do
+ActiveRecord::Schema.define(version: 20160917101720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20160916221937) do
     t.integer  "edited_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "individual_identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "fullname"
+    t.integer  "sex_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sex_id"], name: "index_individual_identities_on_sex_id", using: :btree
+    t.index ["user_id"], name: "index_individual_identities_on_user_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -70,11 +80,6 @@ ActiveRecord::Schema.define(version: 20160916221937) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "fullname"
-    t.integer  "birth_year"
-    t.integer  "birth_month"
-    t.integer  "birth_day"
-    t.integer  "sex_id",                 default: 1
     t.integer  "security_id",            default: 1
     t.integer  "role_id",                default: 1
     t.text     "note"
@@ -83,11 +88,11 @@ ActiveRecord::Schema.define(version: 20160916221937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
     t.index ["security_id"], name: "index_users_on_security_id", using: :btree
-    t.index ["sex_id"], name: "index_users_on_sex_id", using: :btree
   end
 
+  add_foreign_key "individual_identities", "sexes"
+  add_foreign_key "individual_identities", "users"
   add_foreign_key "roles", "entities"
   add_foreign_key "users", "roles"
   add_foreign_key "users", "securities"
-  add_foreign_key "users", "sexes"
 end
