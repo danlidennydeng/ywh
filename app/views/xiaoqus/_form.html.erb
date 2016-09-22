@@ -1,0 +1,57 @@
+<%= form_for(xiaoqu) do |f| %>
+  <% if xiaoqu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(xiaoqu.errors.count, "error") %> prohibited this xiaoqu from being saved:</h2>
+
+      <ul>
+      <% xiaoqu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_units %>
+    <%= f.number_field :total_units %>
+  </div>
+
+  <div class="field">
+    <%= f.label :populations %>
+    <%= f.number_field :populations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starting_year %>
+    <%= f.number_field :starting_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starting_month %>
+    <%= f.number_field :starting_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edited_by %>
+    <%= f.number_field :edited_by %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

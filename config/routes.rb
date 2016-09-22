@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :ownerships
+  resources :business_identities
+  resources :official_identities
+  resources :role_categories
+  resources :residences
+  resources :xiaoqus
+  resources :approving_statuses
+  resources :reasons
   resources :individual_identities
   resources :roles
   resources :entities

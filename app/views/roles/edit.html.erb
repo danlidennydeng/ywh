@@ -1,6 +1,47 @@
 <h1>Editing Role</h1>
 
-<%= render 'form', role: @role %>
+<%= form_for(@role) do |f| %>
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.collection_select(:role_category_id, RoleCategory.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :entity_id %>
+    <%= f.collection_select(:entity_id, Entity.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edited_by %>
+    <%= f.number_field :edited_by %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @role %> |
 <%= link_to 'Back', roles_path %>

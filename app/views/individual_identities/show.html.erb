@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <strong>全名:</strong>
   <%= @individual_identity.fullname %>
@@ -25,6 +27,16 @@
   <strong>Sex:</strong>
   <%= @individual_identity.sex.name %>
 </p>
+
+<% if @individual_identity.user.residence %>
+
+	<p>
+	  <strong>全名:</strong>
+	  <%= @individual_identity.user.residence.xiaoqu.name %>
+	</p>
+
+<% end %>
+
 
 <% if current_user.security.level == 99 %>
 

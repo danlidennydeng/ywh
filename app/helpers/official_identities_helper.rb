@@ -1,0 +1,2 @@
+module OfficialIdentitiesHelper
+end

@@ -1,0 +1,2 @@
+module XiaoqusHelper
+end

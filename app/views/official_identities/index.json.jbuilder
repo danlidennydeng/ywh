@@ -1,0 +1,1 @@
+json.array! @official_identities, partial: 'official_identities/official_identity', as: :official_identity

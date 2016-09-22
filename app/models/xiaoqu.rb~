@@ -1,0 +1,4 @@
+class Xiaoqu < ApplicationRecord
+  has_many :residences
+  belongs_to :approving_statuses
+end

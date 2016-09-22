@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @approving_status.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @approving_status.note %>
+</p>
+
+<p>
+  <strong>Edited by:</strong>
+  <%= @approving_status.edited_by %>
+</p>
+
+<%= link_to 'Edit', edit_approving_status_path(@approving_status) %> |
+<%= link_to 'Back', approving_statuses_path %>

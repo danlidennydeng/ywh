@@ -7,7 +7,7 @@
     <tr>
       <th>Fullname</th>
       <th>角色</th>
-      
+      <th>Sex</th>
       <th>Sex</th>
       <th colspan="1"></th>
     </tr>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= individual_identity.fullname %></td>
         <td><%= individual_identity.user.role.name %></td>
-        
+        <td><%= individual_identity.user.security.level %></td>
         <td><%= individual_identity.sex.name %></td>
         
         <td><%= link_to 'Show', individual_identity %></td>

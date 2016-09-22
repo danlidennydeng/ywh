@@ -14,7 +14,10 @@
  *= require_self
  */
 
-body { background-color: gray;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { background-color: #C3AFBE;
 
 
 }

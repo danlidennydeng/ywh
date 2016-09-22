@@ -22,6 +22,8 @@
         <td><%= individual_identity.sex.name %></td>
         
         <td><%= link_to 'Show', individual_identity %></td>
+        <td><%= link_to 'Destroy', individual_identity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 <!--
         
         <td><%= link_to 'Edit', edit_individual_identity_path(individual_identity) %></td>

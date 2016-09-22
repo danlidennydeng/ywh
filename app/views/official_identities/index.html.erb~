@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Official Identities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Note</th>
+      <th>Edited by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @official_identities.each do |official_identity| %>
+      <tr>
+        <td><%= official_identity.user.email %></td>
+        <td><%= official_identity.name %></td>
+        <td><%= official_identity.note %></td>
+        <td><%= official_identity.edited_by %></td>
+        <td><%= link_to 'Show', official_identity %></td>
+        <td><%= link_to 'Edit', edit_official_identity_path(official_identity) %></td>
+        <td><%= link_to 'Destroy', official_identity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Official Identity', new_official_identity_path %>

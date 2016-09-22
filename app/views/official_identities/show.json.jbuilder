@@ -1,0 +1,1 @@
+json.partial! "official_identities/official_identity", official_identity: @official_identity

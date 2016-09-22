@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @official_identity.user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @official_identity.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @official_identity.note %>
+</p>
+
+<p>
+  <strong>Edited by:</strong>
+  <%= @official_identity.edited_by %>
+</p>
+
+<%= link_to 'Edit', edit_official_identity_path(@official_identity) %> |
+<%= link_to 'Back', official_identities_path %>

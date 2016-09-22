@@ -1,10 +1,44 @@
 <h1>Home</h1>
 
-<% if current_user.individual_identity.nil? %>
-<%= link_to '上传个人信息', :controller => 'individual_identities', :action => 'new', :id => current_user.id %>
+
+<div>
+<% if current_user.individual_identity.nil? && current_user.official_identity.nil? && current_user.business_identity.nil? %>
+  
+  <%= link_to '上传个人信息', :controller => 'individual_identities', :action => 'new', :id => current_user.id %></br>
+  <%= link_to '上传官方信息', :controller => 'official_identities', :action => 'new', :id => current_user.id %></br>
+  <%= link_to '上传商业信息', :controller => 'business_identities', :action => 'new', :id => current_user.id %>
+
+<% elsif current_user.individual_identity %>
+
+  <%= link_to '查看个人信息', :controller => 'individual_identities', :action => 'show', :id => current_user.individual_identity.id %>
+    <div>
+	<% if current_user.residence.nil? %>
+	<%= link_to '您住哪个小区？', :controller => 'residences', :action => 'new', :id => current_user.id %>
+
+	<% elsif current_user.residence %>
+
+	  <%= link_to '查看您的居住情况', :controller => 'residences', :action => 'show', :id => current_user.residence.id %>
+                <div>
+                   <% if current_user.ownership.nil? %>
+			<%= link_to '上传房产信息', :controller => 'ownerships', :action => 'new', :id => current_user.id %></br>
+		   <% else %>
+			
+			<%= link_to '查看房产信息', :controller => 'ownerships', :action => 'show', :id => current_user.ownerships.ids %></br>
+
+		   <% end %>
+
+		</div>
+
+	<% end %>
+
+
+    </div>
+
+<% elsif current_user.official_identity %>
+  <%= link_to '查看官方信息', :controller => 'official_identities', :action => 'show', :id => current_user.official_identity.id %>
 
 <% else %>
-
-<%= link_to '个人信息', :controller => 'individual_identities', :action => 'show', :id => current_user.id %>
+   <%= link_to '查看商业信息', :controller => 'business_identities', :action => 'show', :id => current_user.business_identity.id %>
 
 <% end %>
+

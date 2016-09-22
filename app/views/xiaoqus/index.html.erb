@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Xiaoqus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Total units</th>
+      <th>Populations</th>
+      <th>Starting year</th>
+      <th>Starting month</th>
+      <th>Note</th>
+      <th>Edited by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @xiaoqus.each do |xiaoqu| %>
+      <tr>
+        <td><%= xiaoqu.name %></td>
+        <td><%= xiaoqu.address %></td>
+        <td><%= xiaoqu.total_units %></td>
+        <td><%= xiaoqu.populations %></td>
+        <td><%= xiaoqu.starting_year %></td>
+        <td><%= xiaoqu.starting_month %></td>
+        <td><%= xiaoqu.note %></td>
+        <td><%= xiaoqu.edited_by %></td>
+        <td><%= link_to 'Show', xiaoqu %></td>
+        <td><%= link_to 'Edit', edit_xiaoqu_path(xiaoqu) %></td>
+        <td><%= link_to 'Destroy', xiaoqu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Xiaoqu', new_xiaoqu_path %>

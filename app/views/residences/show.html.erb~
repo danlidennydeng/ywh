@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @residence.user.individual_identity.fullname %>
+</p>
+
+<p>
+  <strong>Xiaoqu:</strong>
+  <%= @residence.xiaoqu.name %>
+</p>
+
+<p>
+  <strong>Unit number:</strong>
+  <%= @residence.unit_number %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @residence.area %>
+</p>
+
+<p>
+  <strong>Approving status:</strong>
+  <%= @residence.approving_status.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @residence.note %>
+</p>
+
+<p>
+  <strong>Edited by:</strong>
+  <%= @residence.edited_by %>
+</p>
+
+<%= link_to 'Edit', edit_residence_path(@residence) %> |
+<%= link_to 'Back', residences_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @xiaoqu.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @xiaoqu.address %>
+</p>
+
+<p>
+  <strong>Total units:</strong>
+  <%= @xiaoqu.total_units %>
+</p>
+
+<p>
+  <strong>Populations:</strong>
+  <%= @xiaoqu.populations %>
+</p>
+
+<p>
+  <strong>Starting year:</strong>
+  <%= @xiaoqu.starting_year %>
+</p>
+
+<p>
+  <strong>Starting month:</strong>
+  <%= @xiaoqu.starting_month %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @xiaoqu.note %>
+</p>
+
+<p>
+  <strong>Edited by:</strong>
+  <%= @xiaoqu.edited_by %>
+</p>
+
+<%= link_to 'Edit', edit_xiaoqu_path(@xiaoqu) %> |
+<%= link_to 'Back', xiaoqus_path %>

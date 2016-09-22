@@ -1,0 +1,1 @@
+json.array! @business_identities, partial: 'business_identities/business_identity', as: :business_identity

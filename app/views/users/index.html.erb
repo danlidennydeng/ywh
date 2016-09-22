@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>用户帐号</th>
       <th>邮箱</th>
+      <th>全名</th>
       <th>角色</th>
       <th>安全级别</th>
       <th colspan="2"></th>
@@ -15,9 +17,14 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= user.id %></td>
         <td><%= user.email %></td>
-       
-        
+        <td>
+      <% if user.individual_identity %> 
+
+         <%= user.individual_identity.fullname %>
+      <% end %>
+         </td>  
         <td><%= user.role.name %></td>
          <td><%= user.security.level %></td>
       </tr>

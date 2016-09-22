@@ -1,0 +1,65 @@
+<% if current_user.security.level > 87 %>
+
+<h1>Editing Residence</h1>
+
+<%= @residence.xiaoqu.name %></br>
+
+<%= @residence.unit_number %>
+
+<%= form_for(@residence) do |f| %>
+  <% if @residence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residence.errors.count, "error") %> 好抱歉！系统出了错误，请电邮给我们的客服到，148955390@qq.com, 多谢！</h2>
+
+      <ul>
+      <% @residence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--  
+  <div class="field">
+    <%= f.label :xiaoqu_id %>
+    <%= f.text_field :xiaoqu_id %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :unit_number %>
+    <%= f.text_field :unit_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area %>
+    <%= f.number_field :area %>
+  </div>
+-->
+
+  <div class="field">
+    <%= f.label :approving_status_id %>
+    <%= f.text_field :approving_status_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note %>
+  </div>
+
+  <%= f.hidden_field :edited_by, :value => current_user.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @residence %> |
+<%= link_to 'Back', residences_path %>
+
+<% else %>
+
+   <p>您的安全级别有待提高。</p>
+   <%= link_to '回家', authenticated_root_url %>
+
+<% end %>

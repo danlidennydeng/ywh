@@ -1,0 +1,3 @@
+class OfficialIdentity < ApplicationRecord
+  belongs_to :user
+end

@@ -7,6 +7,13 @@ class User < ApplicationRecord
   belongs_to :role
   belongs_to :security
   
-  has_one :individual_identity
+  has_one :individual_identity, dependent: :destroy
+  has_one :official_identity, dependent: :destroy
+  has_one :business_identity, dependent: :destroy
+  
+
+  has_one :residence, dependent: :destroy
+
+  has_one :ownership, dependent: :destroy
 
 end

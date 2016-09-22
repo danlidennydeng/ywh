@@ -1,0 +1,1 @@
+json.partial! "business_identities/business_identity", business_identity: @business_identity

@@ -1,11 +1,12 @@
-<% if current_user.security.level == 99 %>
+<% if current_user.security.level > 87 %>
 
 <h1>Editing Individual Identity</h1>
 
 <%= form_for(@individual_identity) do |f| %>
   <% if @individual_identity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@individual_identity.errors.count, "error") %> prohibited this individual_identity from being saved:</h2>
+      <h2><%= pluralize(@individual_identity.errors.count, "error") %> 好抱歉！系统出了错误，请电邮给我们的客服到，148955390@qq.com, 多谢！</h2>
+
 
       <ul>
       <% @individual_identity.errors.full_messages.each do |message| %>

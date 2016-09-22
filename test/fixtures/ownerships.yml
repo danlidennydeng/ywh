@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  unit_number: MyString
+  note: MyText
+  edited_by: 1
+
+two:
+  user: two
+  unit_number: MyString
+  note: MyText
+  edited_by: 1

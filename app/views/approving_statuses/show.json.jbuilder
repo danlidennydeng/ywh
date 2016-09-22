@@ -1,0 +1,1 @@
+json.partial! "approving_statuses/approving_status", approving_status: @approving_status

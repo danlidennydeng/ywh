@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  xiaoqu: one
+  unit_number: MyString
+  area: 1
+  approving_status: one
+  note: MyText
+  edited_by: 1
+
+two:
+  user: two
+  xiaoqu: two
+  unit_number: MyString
+  area: 1
+  approving_status: two
+  note: MyText
+  edited_by: 1

@@ -1,0 +1,1 @@
+json.array! @xiaoqus, partial: 'xiaoqus/xiaoqu', as: :xiaoqu

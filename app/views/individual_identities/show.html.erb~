@@ -2,6 +2,11 @@
 
 <p>
   <strong>全名:</strong>
+  <%= @individual_identity.user.residence.xiaoqu.name %>
+</p>
+
+<p>
+  <strong>全名:</strong>
   <%= @individual_identity.fullname %>
 </p>
 <p>
@@ -26,7 +31,7 @@
   <%= @individual_identity.sex.name %>
 </p>
 
-<% if current_user.security.level = 99 %>
+<% if current_user.security.level == 99 %>
 
    <%= link_to 'Edit', edit_individual_identity_path(@individual_identity) %> | 
 <%= link_to 'Back', individual_identities_path %>

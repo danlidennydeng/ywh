@@ -1,4 +1,4 @@
-<% if current_user.security.level == 99 %>
+<% if current_user.security.level > 87 %>
 
 <h1>Editing Individual Identity</h1>
 
@@ -36,6 +36,6 @@
 <% else %>
 
    <p>您的安全级别有待提高。</p>
-   <%= link_to '回家', authenticated_root %>
+   <%= link_to '回家', authenticated_root_url %>
 
 <% end %>

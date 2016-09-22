@@ -1,0 +1,1 @@
+json.array! @approving_statuses, partial: 'approving_statuses/approving_status', as: :approving_status

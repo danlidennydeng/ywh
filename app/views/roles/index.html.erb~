@@ -17,7 +17,7 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.name %></td>
-        <td><%= role.entity %></td>
+        <td><%= role.entity.name %></td>
         <td><%= role.note %></td>
         <td><%= role.edited_by %></td>
         <td><%= link_to 'Show', role %></td>

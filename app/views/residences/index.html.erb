@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Residences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Xiaoqu</th>
+     
+      <th>status</th>
+     
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @residences.each do |residence| %>
+      <tr>
+        <td><%= residence.user.individual_identity.fullname %></td>
+        <td><%= residence.xiaoqu.name %></td>
+        
+        <td></td>
+        
+        <td><%= link_to 'Show', residence %></td>
+        <td><%= link_to 'Edit', edit_residence_path(residence) %></td>
+        <td><%= link_to 'Destroy', residence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
