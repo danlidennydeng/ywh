@@ -21,10 +21,10 @@
     <%= f.label :姓名 %>
     <%= f.text_field :fullname %>
   </div>
-
+(请把上传照片控制在1兆之内，不然要等很久。)
   <div class="field">
-    <%= f.label :形象 %>
-    <%= f.text_field :picture %>
+    <%= f.label :形象照片上传 %>
+    <%= f.file_field :picture %>
   </div>
 
   <div class="field">

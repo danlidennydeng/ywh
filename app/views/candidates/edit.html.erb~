@@ -1,4 +1,4 @@
-<h1>Editing Candidate</h1>
+<h3>更改竞选人信息</h3>
 
 <%= form_for(@candidate, html: { multipart: true }) do |f| %>
   <% if @candidate.errors.any? %>
@@ -12,9 +12,9 @@
       </ul>
     </div>
   <% end %>
-
+(请把上传照片控制在1兆之内，不然要等很久。)
   <div class="field">
-    <%= f.label :形象 %>
+    <%= f.label :形象照片上传 %>
     <%= f.file_field :picture %>
   </div>
 

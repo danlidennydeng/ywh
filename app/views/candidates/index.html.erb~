@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to '竞选人在此登录，上传竞选纲领', root_url, class: "btn btn-primary" %>
 <h3>业主委员会竞选人</h3>
 (顺序不重要)</br>
 <ol type='1'>
@@ -14,14 +14,14 @@
         <%= link_to '更多信息', candidate, class: "btn btn-default" %>
 
 	<% if can?(:manage, candidate) %> 
-            <%= link_to '更改信息', edit_candidate_path(candidate) %> 
+            <%= link_to '更改信息', edit_candidate_path(candidate), class: "btn btn-primary" %>
         
                
-            <%= link_to '删除信息', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></br>
+            <%= link_to '删除信息', candidate, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></br>
 	<% end %>
       </li>
 <p></p>
     <% end %>
  
-<br>
+<%= link_to '竞选人在此登录，上传竞选纲领', root_url, class: "btn btn-primary" %>
 

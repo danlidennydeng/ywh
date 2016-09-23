@@ -65,7 +65,7 @@
   <%= @candidate.note %>
 </p>
 
-<% if can?(:manage, candidate) %>
+<% if can?(:manage, @candidate) %>
 <%= link_to '更改', edit_candidate_path(@candidate) %> |
 <% end %>
 
