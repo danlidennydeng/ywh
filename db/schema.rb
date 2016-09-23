@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922075913) do
+ActiveRecord::Schema.define(version: 20160922214030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(version: 20160922075913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_business_identities_on_user_id", using: :btree
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "fullname"
+    t.string   "picture"
+    t.text     "introduction"
+    t.text     "speech"
+    t.string   "sex"
+    t.integer  "age"
+    t.string   "profession"
+    t.string   "education"
+    t.string   "political"
+    t.string   "unit_number"
+    t.integer  "area"
+    t.text     "note"
+    t.integer  "edited_by"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_candidates_on_user_id", using: :btree
   end
 
   create_table "educations", force: :cascade do |t|
@@ -175,6 +195,7 @@ ActiveRecord::Schema.define(version: 20160922075913) do
   end
 
   add_foreign_key "business_identities", "users"
+  add_foreign_key "candidates", "users"
   add_foreign_key "individual_identities", "sexes"
   add_foreign_key "individual_identities", "users"
   add_foreign_key "official_identities", "users"

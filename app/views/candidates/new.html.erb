@@ -1,0 +1,86 @@
+<h3>新竞选人</h3>
+
+<%= form_for(@candidate, html: { multipart: true }) do |f| %>
+  <% if @candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+      <% @candidate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+ 
+
+  <div class="field">
+    <%= f.label :姓名 %>
+    <%= f.text_field :fullname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :形象 %>
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :个人简介 %>
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :竞选纲领 %>
+    <%= f.text_area :speech %>
+  </div>
+<hr>
+  <div class="field">
+    <%= f.label :性别 %>
+    <%= f.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= f.label :年龄 %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :职业 %>
+    <%= f.text_field :profession %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文化程度 %>
+    <%= f.text_field :education %>
+  </div>
+
+  <div class="field">
+    <%= f.label :政治面貌 %>
+    <%= f.text_field :political %>
+  </div>
+
+  <div class="field">
+    <%= f.label :专有部分座落 %>
+    <%= f.text_field :unit_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :专有部分面积平方米 %>
+    <%= f.number_field :area %>
+  </div>
+
+  <div class="field">
+    <%= f.label :特别说明 %>
+    <%= f.text_area :note %>
+  </div>
+
+ 
+  <div class="actions">
+    <%= f.submit '上传', class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to '回车', candidates_path, class: "btn btn-default" %>

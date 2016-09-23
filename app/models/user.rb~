@@ -14,6 +14,6 @@ class User < ApplicationRecord
 
   has_one :residence, dependent: :destroy
 
-  has_one :ownership, dependent: :destroy
+  has_many :ownerships, dependent: :destroy
 
 end

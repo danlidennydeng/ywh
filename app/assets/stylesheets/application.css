@@ -16,7 +16,23 @@
 
 
 
-body { background-color: #C3AFBE;
+body { 
+	background-color: #C3AFBE;
 
+	margin: 10px;
+	padding: 0px;
+
+	font-size: 16px;
+}
+
+ol {
+	margin: 5px;
+	padding: 5px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
 
 }

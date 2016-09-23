@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_one :individual_identity, dependent: :destroy
   has_one :official_identity, dependent: :destroy
   has_one :business_identity, dependent: :destroy
+
+  has_one :candidate, dependent: :destroy
   
 
   has_one :residence, dependent: :destroy

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h3>业主委员会竞选人</h3>
+(顺序不重要)</br>
+<ol type='1'>
+    <% @candidates.each do |candidate| %>
+      <li>
+        
+        <%= candidate.fullname %></br>
+         <%= image_tag candidate.picture.url if candidate.picture? %>
+        个人简介:</br> <%= candidate.introduction %></br>
+        竞选纲领：</br> <%= candidate.speech %></br>
+       
+        <%= link_to '更多信息', candidate, class: "btn btn-default" %>
+
+	<% if can?(:manage, candidate) %> 
+            <%= link_to '更改信息', edit_candidate_path(candidate) %> 
+        
+               
+            <%= link_to '删除信息', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></br>
+	<% end %>
+      </li>
+<p></p>
+    <% end %>
+ 
+<br>
+

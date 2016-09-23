@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
 	if user && user.persisted?
-	   can :manage, Candidate, user_id: user.id
+	   can :destroy, Candidate, user_id: user.id
 
 	end
     # Define abilities for the passed in user here. For example:

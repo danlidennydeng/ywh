@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>电邮:</strong>
+  <%= @candidate.user.email %>
+</p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @candidate.fullname %>
+</p>
+
+<p>
+  <strong>形象:</strong>
+  <%= image_tag @candidate.picture.url if @candidate.picture? %>
+</p>
+
+<p>
+  <strong>个人简介:</strong>
+  <%= @candidate.introduction %>
+</p>
+
+<p>
+  <strong>竞选纲领:</strong>
+  <%= @candidate.speech %>
+</p>
+
+<p>
+  <strong>性别:</strong>
+  <%= @candidate.sex %>
+</p>
+
+<p>
+  <strong>年龄:</strong>
+  <%= @candidate.age %>
+</p>
+
+<p>
+  <strong>职业:</strong>
+  <%= @candidate.profession %>
+</p>
+
+<p>
+  <strong>文化程度:</strong>
+  <%= @candidate.education %>
+</p>
+
+<p>
+  <strong>政治面貌:</strong>
+  <%= @candidate.political %>
+</p>
+
+<p>
+  <strong>专有部分座落:</strong>
+  <%= @candidate.unit_number %>
+</p>
+
+<p>
+  <strong>专有部分面积平方米:</strong>
+  <%= @candidate.area %>
+</p>
+
+<p>
+  <strong>特别说明:</strong>
+  <%= @candidate.note %>
+</p>
+
+<% if can?(:manage, candidate) %>
+<%= link_to '更改', edit_candidate_path(@candidate) %> |
+<% end %>
+
+<%= link_to '回车', candidates_path %>
