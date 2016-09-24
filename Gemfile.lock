@@ -324,14 +324,14 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancan
-  carrierwave (= 0.10.0)
+  carrierwave
   coffee-rails (~> 4.2)
   devise
-  fog (= 1.38.0)
+  fog
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  mini_magick (= 3.8.0)
+  mini_magick
   net-ssh
   pg (~> 0.18)
   puma (~> 3.0)

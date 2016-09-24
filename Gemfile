@@ -34,9 +34,9 @@ gem 'cancan'
 
 gem 'bootstrap-sass'
 
-gem 'carrierwave',             '0.10.0'
-gem 'mini_magick',             '3.8.0'
-gem 'fog',                     '1.38.0'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 gem 'net-ssh'
 
 group :development, :test do
