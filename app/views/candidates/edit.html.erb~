@@ -1,3 +1,5 @@
+<% if can?(:manage, @candidate) %>
+
 <h3>更改竞选人信息</h3>
 
 <%= form_for(@candidate, html: { multipart: true }) do |f| %>
@@ -13,6 +15,7 @@
     </div>
   <% end %>
 (请把上传照片控制在1兆之内，不然要等很久。)
+<p></p>
   <div class="field">
     <%= f.label :形象照片上传 %>
     <%= f.file_field :picture %>
@@ -76,3 +79,10 @@
 
 <%= link_to '详细', @candidate %> |
 <%= link_to '回车', candidates_path %>
+
+<% else %>
+
+对不起！您只能修改自己的信息。</br>
+
+<%= link_to '回车', candidates_path %>
+<% end %>

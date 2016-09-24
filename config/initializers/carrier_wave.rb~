@@ -1,3 +1,11 @@
-*config/initializers/carrier_wave.rb*
-
-require 'carrierwave/orm/activerecord'
+if Rails.env.production?
+  CarrierWave.configure do |config|
+    config.fog_credentials = {
+      # Configuration for Amazon S3
+      :provider              => 'AWS',
+      :aws_access_key_id     => ENV['AKIAJOWTZ3OKEOETNCRQ'],
+      :aws_secret_access_key => ENV['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']
+    }
+    config.fog_directory     =  ENV['ywh1234']
+  end
+end

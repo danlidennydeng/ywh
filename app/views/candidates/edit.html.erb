@@ -1,3 +1,5 @@
+<% if can?(:manage, @candidate) %>
+
 <h3>更改竞选人信息</h3>
 
 <%= form_for(@candidate, html: { multipart: true }) do |f| %>
@@ -77,3 +79,10 @@
 
 <%= link_to '详细', @candidate %> |
 <%= link_to '回车', candidates_path %>
+
+<% else %>
+
+<p>对不起！您只能修改自己的信息。</p>
+
+<p><%= link_to '回车', candidates_path %></p>
+<% end %>
