@@ -1,6 +1,6 @@
 <h1>New Official Identity</h1>
 
-<%= form_for(@official_identity) do |f| %>
+<%= form_for(@official_identity, html: { multipart: true }) do |f| %>
   <% if @official_identity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@official_identity.errors.count, "error") %> prohibited this official_identity from being saved:</h2>
@@ -20,6 +20,11 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
+  </div>
+
+   <div id="fileupload">
+    <%= f.label :image1, "Upload:" %>
+    <%= f.file_field :image1 %>
   </div>
 
   <div class="field">

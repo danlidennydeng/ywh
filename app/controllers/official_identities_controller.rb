@@ -69,6 +69,6 @@ class OfficialIdentitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def official_identity_params
-      params.require(:official_identity).permit(:user_id, :name, :note, :edited_by)
+      params.require(:official_identity).permit(:user_id, :name, :note, :edited_by, :image1)
     end
 end

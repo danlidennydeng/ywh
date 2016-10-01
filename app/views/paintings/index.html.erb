@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paintings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paintings.each do |painting| %>
+      <tr>
+        <td><%= painting.name %></td>
+        <td><%= image_tag painting.image.url(:thumb).to_s %></td>
+        <td><%= link_to 'Show', painting %></td>
+        <td><%= link_to 'Edit', edit_painting_path(painting) %></td>
+        <td><%= link_to 'Destroy', painting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div id="new_painting">
+<%= form_for Painting.new do |f| %>
+  <%= f.label :image, "Upload paintings:" %>
+  <%= f.file_field :image, multiple: true, name: "painting[image]" %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+</div>

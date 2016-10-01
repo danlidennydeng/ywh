@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :paintings
   resources :candidates
   resources :ownerships
   resources :business_identities

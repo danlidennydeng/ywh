@@ -6,9 +6,17 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>name:</strong>
   <%= @official_identity.name %>
 </p>
+
+<p id="new_image">
+  <strong>Image1:</strong>
+  <%= image_tag @official_identity.image1.url if @official_identity.image1? %>
+</p>
+
+
+
 
 <p>
   <strong>Note:</strong>
