@@ -3,11 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $("#new_painting").fileupload({
-    url: '//jquery-file-upload.appspot.com/',
-    dataType: 'json',
-   
-    imageMaxWidth: 800,
-    imageMaxHeight: 800,
-    imageCrop: true
-})
+  $("#new_painting").fileupload()

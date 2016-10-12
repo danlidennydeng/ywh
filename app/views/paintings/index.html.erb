@@ -29,8 +29,8 @@
 <div id="new_painting">
 <%= form_for Painting.new do |f| %>
   <%= f.label :image, "Upload paintings:" %>
-  <%= f.file_field :image, multiple: true, name: "painting[image]" %>
-  
+  <%= f.file_field :image %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
@@ -38,3 +38,24 @@
 <% end %>
 
 </div>
+
+
+<!--
+<script>
+
+$(document).ready(function(){
+
+ $('#painting_image').change(function(e) {
+    var file = e.target.files[0];
+    canvasResize(file, {
+                width: 300,
+                height: 300,
+                crop: false,
+                quality: 80,
+                
+                callback: function(){},
+    });
+  });
+});
+</script> 
+-->
