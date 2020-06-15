@@ -237,3 +237,7 @@ end
 
 <%= image_tag painting.image.url(:thumb).to_s %> or <%= image_tag(painting.image.url(:thumb).to_s) %>
 
+------------------------------------------------------------------
+
+remake the entire app as xq234_version3
+

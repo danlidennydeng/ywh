@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :individual_identities
   resources :roles
   resources :entities
-  resources :educations
   resources :securities
 
   authenticated :user do
